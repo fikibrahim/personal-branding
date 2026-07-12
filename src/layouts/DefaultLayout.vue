@@ -1,8 +1,8 @@
 <template>
-  <div class="min-h-screen bg-[var(--bg-body)] text-white">
+  <div class="flex min-h-screen flex-col bg-[var(--bg-body)] text-white">
     <AppHeader />
 
-    <main>
+    <main class="flex-1">
       <slot />
     </main>
 
