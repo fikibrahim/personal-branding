@@ -5,26 +5,33 @@ import HeroStats from "@/components/hero/HeroStats.vue";
 </script>
 
 <template>
-  <div>
+  <div
+    data-aos="fade-right"
+    class="max-w-2xl"
+  >
 
-    <h1 class="mb-6 text-5xl font-bold">
+    <!-- Heading -->
+    <h1 class="mb-6 text-5xl font-bold leading-tight">
       Selamat Datang
     </h1>
 
-    <p
-      class="
-        max-w-2xl
-        text-slate-400
-      "
-    >
+    <!-- Description -->
+    <p class="mb-10 text-lg leading-8 text-slate-400">
       Website personal branding saya sedang dibangun
       menggunakan Vue 3, Vite, dan Tailwind CSS v4.
     </p>
 
-    <HeroButtons />
+    <!-- Buttons -->
+    <div class="mb-8">
+      <HeroButtons />
+    </div>
 
-    <HeroSocial />
+    <!-- Social -->
+    <div class="mb-10">
+      <HeroSocial />
+    </div>
 
+    <!-- Stats -->
     <HeroStats />
 
   </div>

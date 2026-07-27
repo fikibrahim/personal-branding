@@ -4,7 +4,7 @@ import HeroCodeEditor from "@/components/hero/HeroCodeEditor.vue";
 </script>
 
 <template>
-  <div class="relative flex flex-col items-center">
+  <div class="relative flex flex-col items-center" data-aos="fade-left">
 
     <!-- Glow Background -->
     <div
@@ -36,6 +36,6 @@ import HeroCodeEditor from "@/components/hero/HeroCodeEditor.vue";
 
       <!-- Hero Code Editor -->
     <HeroCodeEditor />
-    
+
   </div>
 </template>

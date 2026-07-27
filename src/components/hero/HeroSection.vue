@@ -10,9 +10,9 @@ import HeroImage from "@/components/hero/HeroImage.vue";
     <div
       class="
         grid
-        items-center
-        gap-16
         lg:grid-cols-2
+        gap-20
+        items-start
       "
     >
       <HeroContent />

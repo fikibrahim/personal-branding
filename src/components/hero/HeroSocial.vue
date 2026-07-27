@@ -1,5 +1,8 @@
 <script setup>
-import { EnvelopeIcon } from "@heroicons/vue/24/outline";
+import {
+  EnvelopeIcon,
+} from "@heroicons/vue/24/outline";
+
 import {
   Github,
   Linkedin,
@@ -8,18 +11,18 @@ import {
 const socials = [
   {
     name: "GitHub",
-    url: "https://github.com/fikibrahim",
     icon: Github,
+    url: "https://github.com/fikibrahim",
   },
   {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/fikibrahim",
     icon: Linkedin,
+    url: "https://linkedin.com/in/taufik-ibrahim",
   },
   {
     name: "Email",
-    url: "mailto:taufikibrahim21@gmail.com",
     icon: EnvelopeIcon,
+    url: "mailto:taufikibrahim21@gmail.com",
   },
 ];
 </script>
@@ -32,14 +35,38 @@ const socials = [
       :key="social.name"
       :href="social.url"
       target="_blank"
-      rel="noopener noreferrer"
-      :aria-label="social.name"
-      class="group"
+      class="group relative"
     >
+
       <component
         :is="social.icon"
-        class="h-6 w-6 text-slate-400 transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-110 group-hover:text-cyan-400"
+        class="h-6 w-6 text-slate-400 transition duration-300 group-hover:-translate-y-1 group-hover:text-cyan-400"
       />
+
+      <!-- Tooltip -->
+      <span
+        class="
+          pointer-events-none
+          absolute
+          -top-11
+          left-1/2
+          -translate-x-1/2
+          rounded-lg
+          bg-slate-800
+          px-3
+          py-1
+          text-xs
+          text-white
+          opacity-0
+          transition-all
+          duration-300
+          group-hover:-translate-y-1
+          group-hover:opacity-100
+        "
+      >
+        {{ social.name }}
+      </span>
+
     </a>
 
   </div>
