@@ -12,6 +12,7 @@
         </p>
 
         <HeroButtons />
+        <HeroSocial />
       </AppContainer>
     </section>
   </DefaultLayout>
@@ -21,4 +22,5 @@
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import AppContainer from '@/components/common/AppContainer.vue'
 import HeroButtons from '@/components/hero/HeroButtons.vue' 
+import HeroSocial from '@/components/hero/HeroSocial.vue'
 </script>
