@@ -1,6 +1,6 @@
 <script setup>
 import profileImage from "@/assets/images/profile.png";
-import HeroStats from "@/components/hero/HeroStats.vue";
+import HeroCodeEditor from "@/components/hero/HeroCodeEditor.vue";
 </script>
 
 <template>
@@ -34,8 +34,8 @@ import HeroStats from "@/components/hero/HeroStats.vue";
       </div>
     </div>
 
-    <!-- Hero Stats -->
-    <HeroStats />
-
+      <!-- Hero Code Editor -->
+    <HeroCodeEditor />
+    
   </div>
 </template>

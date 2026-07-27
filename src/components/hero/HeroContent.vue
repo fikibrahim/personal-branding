@@ -1,6 +1,7 @@
 <script setup>
 import HeroButtons from "@/components/hero/HeroButtons.vue";
 import HeroSocial from "@/components/hero/HeroSocial.vue";
+import HeroStats from "@/components/hero/HeroStats.vue";
 </script>
 
 <template>
@@ -23,6 +24,8 @@ import HeroSocial from "@/components/hero/HeroSocial.vue";
     <HeroButtons />
 
     <HeroSocial />
+
+    <HeroStats />
 
   </div>
 </template>
