@@ -12,7 +12,7 @@ import HeroStats from "@/components/hero/HeroStats.vue";
 
     <!-- Heading -->
     <h1 class="mb-6 text-5xl font-bold leading-tight">
-      Selamat Datang
+      👋 Hi, I'm Taufik
     </h1>
 
     <!-- Description -->

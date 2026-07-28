@@ -17,7 +17,7 @@ const socials = [
   {
     name: "LinkedIn",
     icon: Linkedin,
-    url: "https://linkedin.com/in/taufik-ibrahim",
+    url: "https://www.linkedin.com/in/taufik-ibrahim-9a385312b/",
   },
   {
     name: "Email",

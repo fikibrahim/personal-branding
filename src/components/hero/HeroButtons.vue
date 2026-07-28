@@ -1,44 +1,18 @@
 <script setup>
+import BaseButton from "@/components/common/BaseButton.vue";
 </script>
 
 <template>
   <div class="mt-8 flex flex-wrap gap-4">
 
-    <a href="#" class="
-      rounded-xl
-      bg-gradient-to-r
-      from-blue-600
-      to-cyan-500
-      px-7
-      py-3
-      font-semibold
-      text-white
-      transition
-      duration-300
-      hover:-translate-y-1
-      hover:shadow-xl
-      hover:scale-105
-      ">
+    <!-- HeroButtons.vue -->
+    <BaseButton href="/cv.pdf">
       Download CV
-    </a>
+    </BaseButton>
 
-    <a href="#contact" class="
-      rounded-xl
-      border
-      border-slate-600
-      px-7
-      py-3
-      font-semibold
-      text-white
-      transition
-      duration-300
-      hover:border-cyan-400
-      hover:bg-slate-800
-      hover:scale-105
-      hover:border-cyan-400
-      ">
+    <BaseButton variant="secondary" href="#contact">
       Hire Me
-    </a>
+    </BaseButton>
 
   </div>
 </template>
