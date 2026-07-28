@@ -11,7 +11,7 @@ import HeroImage from "@/components/hero/HeroImage.vue";
       flex
       min-h-screen
       items-center
-      py-20
+      py-12
     "
   >
     <AppContainer>
@@ -19,7 +19,7 @@ import HeroImage from "@/components/hero/HeroImage.vue";
         class="
           grid
           grid-cols-1
-          items-start
+          items-center
           gap-16
           lg:grid-cols-2
           lg:gap-20

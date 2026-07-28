@@ -35,7 +35,9 @@ import HeroCodeEditor from "@/components/hero/HeroCodeEditor.vue";
     </div>
 
       <!-- Hero Code Editor -->
-    <HeroCodeEditor />
+     <div class="-mt-5">
+      <HeroCodeEditor />
+    </div>
 
   </div>
 </template>

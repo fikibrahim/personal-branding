@@ -33,7 +33,10 @@ function typeCode(lines) {
 
     clearTyping();
 
+
     displayedCode.value = [];
+
+    // displayedCode.value = Array(MAX_LINES).fill("");
 
     let lineIndex = 0;
 
@@ -165,7 +168,7 @@ onUnmounted(() => {
         </div>
 
         <!-- Body -->
-        <div class="p-5 font-mono text-sm leading-7">
+        <div class="h-60 p-5 font-mono text-sm leading-7">
 
             <div v-for="(line, index) in displayedCode" :key="index" class="flex gap-4">
 

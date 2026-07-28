@@ -9,7 +9,6 @@ import AboutContent from "./AboutContent.vue";
 </script>
 
 <template>
-    <SectionWrapper>
         <AppContainer>
 
             <SectionTitle badge="About Me" title="Building Digital Solutions with Passion"
@@ -17,6 +16,7 @@ import AboutContent from "./AboutContent.vue";
                 align="center" />
 
             <div class="mt-16 grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+                
                 <AboutImage />
 
                 <AboutContent />
@@ -25,5 +25,4 @@ import AboutContent from "./AboutContent.vue";
             <AboutHighlights />
 
         </AppContainer>
-    </SectionWrapper>
 </template>

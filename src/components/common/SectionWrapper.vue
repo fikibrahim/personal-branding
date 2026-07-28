@@ -1,10 +1,17 @@
+<script setup>
+defineProps({
+  id: {
+    type: String,
+    default: "",
+  },
+});
+</script>
+
 <template>
-  <section
-    class="
+  <section :id="id" class="
       py-24
-      lg:py-32
-    "
-  >
+      lg:py-28
+    ">
     <slot />
   </section>
 </template>

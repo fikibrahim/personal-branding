@@ -7,7 +7,7 @@ import HeroStats from "@/components/hero/HeroStats.vue";
 <template>
   <div
     data-aos="fade-right"
-    class="max-w-2xl"
+    class="max-w-2xl lg:pt-6"
   >
 
     <!-- Heading -->

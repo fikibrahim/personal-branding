@@ -2,26 +2,14 @@
 defineProps({
   badge: String,
   title: String,
-  subtitle: String,
-  align: {
-    type: String,
-    default: "left",
-  },
+  description: String,
 });
 </script>
 
 <template>
-  <div
-    :class="[
-      align === 'center'
-        ? 'text-center'
-        : 'text-left'
-    ]"
-  >
-    <!-- Badge -->
-    <span
-      v-if="badge"
-      class="
+  <div class="mx-auto mb-16 max-w-3xl text-center">
+
+    <span class="
         inline-flex
         rounded-full
         border
@@ -29,39 +17,35 @@ defineProps({
         bg-cyan-500/10
         px-4
         py-1
-        text-sm
+        text-xs
         font-medium
+        tracking-wide
         text-cyan-400
-      "
-    >
+      ">
       {{ badge }}
     </span>
 
-    <!-- Title -->
-    <h2
-      class="
-        mt-4
+    <h2 class="
+        mt-6
         text-4xl
         font-bold
+        tracking-tight
         text-white
-      "
-    >
+        lg:text-5xl
+      ">
       {{ title }}
     </h2>
 
-    <!-- Subtitle -->
-    <p
-      v-if="subtitle"
-      class="
-        mt-4
+    <p class="
+        mx-auto
+        mt-5
         max-w-2xl
+        text-lg
+        leading-8
         text-slate-400
-      "
-      :class="{
-        'mx-auto': align === 'center'
-      }"
-    >
-      {{ subtitle }}
+      ">
+      {{ description }}
     </p>
+
   </div>
 </template>
