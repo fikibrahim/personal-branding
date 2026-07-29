@@ -9,7 +9,7 @@ defineProps({
 
 <template>
   <section :id="id" class="
-      py-24
+      py-8
       lg:py-28
     ">
     <slot />

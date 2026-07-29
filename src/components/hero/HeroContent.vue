@@ -2,13 +2,12 @@
 import HeroButtons from "@/components/hero/HeroButtons.vue";
 import HeroSocial from "@/components/hero/HeroSocial.vue";
 import HeroStats from "@/components/hero/HeroStats.vue";
+import SkillBar from "@/components/skill/SkillBar.vue";
+import SectionWrapper from "../common/SectionWrapper.vue";
 </script>
 
 <template>
-  <div
-    data-aos="fade-right"
-    class="max-w-2xl lg:pt-6"
-  >
+  <div data-aos="fade-right" class="max-w-2xl lg:pt-6">
 
     <!-- Heading -->
     <h1 class="mb-6 text-5xl font-bold leading-tight">
@@ -33,6 +32,7 @@ import HeroStats from "@/components/hero/HeroStats.vue";
 
     <!-- Stats -->
     <HeroStats />
+
 
   </div>
 </template>

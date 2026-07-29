@@ -17,9 +17,18 @@ import {
     Phone,
     Globe,
     House,
+    Monitor,
+    Server,
+    Wrench,
+    LayoutDashboard,
+    PanelsTopLeft,
+    CodeXml,
+    Boxes,
+    Workflow,
 } from "lucide-vue-next";
 
 export const icons = {
+
     // Experience
     Code2,
     GraduationCap,
@@ -32,13 +41,26 @@ export const icons = {
     User,
     FolderGit2,
     Award,
+
     Github,
     Linkedin,
     Mail,
     Phone,
+
     Globe,
     House,
     MapPin,
+
     ExternalLink,
     Download,
+
+    // Skills
+    Monitor,
+    Server,
+    Wrench,
+    LayoutDashboard,
+    PanelsTopLeft,
+    CodeXml,
+    Boxes,
+    Workflow,
 };
