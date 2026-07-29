@@ -11,6 +11,7 @@
 
       <SkillsSection />
 
+      <ProjectsSection />
 
     </section>
 
@@ -23,4 +24,5 @@ import HeroSection from "@/components/hero/HeroSection.vue";
 import AboutSection from "@/components/about/AboutSection.vue";
 import ExperienceSection from "@/components/experience/ExperienceSection.vue";
 import SkillsSection from "@/components/section/SkillsSection.vue";
+import ProjectsSection from "@/components/section/ProjectsSection.vue";
 </script>
