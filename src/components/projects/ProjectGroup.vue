@@ -2,10 +2,6 @@
 import ProjectCard from "@/components/projects/ProjectCard.vue";
 import { icons } from "@/utils/icons";
 
-const emit = defineEmits([
-    "view",
-]);
-
 const props = defineProps({
 
     group: {
@@ -90,7 +86,7 @@ const GroupIcon =
                 md:grid-cols-2
             ">
 
-            <ProjectCard v-for="project in group.projects" :key="project.id" :project="project" @view="emit('view', $event)"/>
+            <ProjectCard v-for="project in group.projects" :key="project.id" :project="project" />
 
         </div>
 

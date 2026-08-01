@@ -7,6 +7,7 @@ import SectionTitle from "@/components/common/SectionTitle.vue";
 
 import ProjectCard from "@/components/projects/ProjectCard.vue";
 import ProjectFilter from "@/components/projects/ProjectFilter.vue";
+import ProjectModal from "@/components/projects/ProjectModal.vue";
 
 import { projects } from "@/data/projects";
 
@@ -132,6 +133,32 @@ const filteredProjects = computed(() => {
     }
 
 });
+
+/*
+|--------------------------------------------------------------------------
+| Project Modal
+|--------------------------------------------------------------------------
+*/
+
+const selectedProject = ref(null);
+
+const showModal = ref(false);
+
+function openProject(project) {
+
+    selectedProject.value = project;
+
+    showModal.value = true;
+
+}
+
+function closeProject() {
+
+    showModal.value = false;
+
+    selectedProject.value = null;
+
+}
 </script>
 
 <template>
@@ -140,34 +167,24 @@ const filteredProjects = computed(() => {
 
         <AppContainer>
 
-            <SectionTitle
-                badge="Portfolio"
-                title="Featured Projects"
-                description="A collection of projects I have built throughout my career as a Frontend Developer, Mobile Developer, Full Stack Developer, and Programming Instructor."
-            />
+            <SectionTitle badge="Portfolio" title="Featured Projects"
+                description="A collection of projects I have built throughout my career as a Frontend Developer, Mobile Developer, Full Stack Developer, and Programming Instructor." />
 
-            <ProjectFilter
-                v-model="selectedFilter"
-                :filters="filters"
-                :counts="filterCounts"
-            />
+            <ProjectFilter v-model="selectedFilter" :filters="filters" :counts="filterCounts" />
 
-            <div
-                class="
+            <div class="
                     mt-16
                     grid
                     gap-8
                     lg:grid-cols-2
-                "
-            >
+                ">
 
-                <ProjectCard
-                    v-for="project in filteredProjects"
-                    :key="project.id"
-                    :project="project"
-                />
+                <ProjectCard v-for="project in filteredProjects" :key="project.id" :project="project"
+                    @view="openProject" />
 
             </div>
+
+            <ProjectModal :show="showModal" :project="selectedProject" @close="closeProject" />
 
         </AppContainer>
 
