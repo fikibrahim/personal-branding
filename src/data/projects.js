@@ -67,6 +67,25 @@ export const projects = [
 
             "Maintain production website."
 
+        ],
+
+        stats: [
+
+            {
+                value: "100%",
+                label: "Responsive",
+            },
+
+            {
+                value: "15+",
+                label: "Pages",
+            },
+
+            {
+                value: "24/7",
+                label: "Production",
+            },
+
         ]
 
     },
@@ -128,6 +147,25 @@ export const projects = [
             "Application testing.",
 
             "Bug fixing and maintenance."
+
+        ],
+
+        stats: [
+
+            {
+                value: "REST",
+                label: "API",
+            },
+
+            {
+                value: "Android",
+                label: "Platform",
+            },
+
+            {
+                value: "100%",
+                label: "Responsive UI",
+            },
 
         ]
 
@@ -195,6 +233,25 @@ export const projects = [
 
             "Deployment."
 
+        ],
+
+        stats: [
+
+            {
+                value: "6+",
+                label: "Modules",
+            },
+
+            {
+                value: "REST",
+                label: "Backend API",
+            },
+
+            {
+                value: "Vue 3",
+                label: "Frontend",
+            },
+
         ]
 
     },
@@ -260,6 +317,25 @@ export const projects = [
             "Optimize performance.",
 
             "Continuous feature development."
+
+        ],
+
+        stats: [
+
+            {
+                value: "20+",
+                label: "Components",
+            },
+
+            {
+                value: "100%",
+                label: "Responsive",
+            },
+
+            {
+                value: "A+",
+                label: "Performance",
+            },
 
         ]
 

@@ -2,6 +2,7 @@
 import ProjectBadge from "./ProjectBadge.vue";
 import ProjectTech from "./ProjectTech.vue";
 import ProjectHighlights from "./ProjectHighlights.vue";
+import FeaturedStats from "@/components/projects/FeaturedStats.vue";
 
 defineProps({
 
@@ -57,6 +58,8 @@ defineProps({
         </p>
 
         <ProjectTech :technologies="project.technologies" />
+
+        <FeaturedStats :stats="project.stats" />
 
         <ProjectHighlights :highlights="project.responsibilities" />
 
