@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 
 import SectionWrapper from "@/components/common/SectionWrapper.vue";
 import AppContainer from "@/components/common/AppContainer.vue";
@@ -23,7 +23,15 @@ import {
 
 /*
 |--------------------------------------------------------------------------
-| Project Filter
+| Constants
+|--------------------------------------------------------------------------
+*/
+
+const PROJECTS_PER_LOAD = 2;
+
+/*
+|--------------------------------------------------------------------------
+| State
 |--------------------------------------------------------------------------
 */
 
@@ -31,45 +39,44 @@ const selectedFilter = ref("All");
 const searchQuery = ref("");
 const selectedSort = ref("Newest");
 
-const projectCount = computed(() => ({
-    showing: filteredProjects.value.length,
-    total: projects.length,
-}));
+const visibleProjects = ref(PROJECTS_PER_LOAD);
+
+const selectedProject = ref(null);
+const showModal = ref(false);
+
+/*
+|--------------------------------------------------------------------------
+| Filters
+|--------------------------------------------------------------------------
+*/
 
 const filters = [
-
     {
         label: "All",
         value: "All",
         icon: LayoutGrid,
     },
-
     {
         label: "Professional",
         value: "Professional",
         icon: BriefcaseBusiness,
     },
-
     {
         label: "Personal",
         value: "Personal",
         icon: User,
     },
-
     {
         label: "Web",
         value: "Web",
         icon: Globe,
     },
-
     {
         label: "Mobile",
         value: "Mobile",
         icon: Smartphone,
     },
-
 ];
-
 
 /*
 |--------------------------------------------------------------------------
@@ -78,7 +85,6 @@ const filters = [
 */
 
 const filterCounts = computed(() => ({
-
     All: projects.length,
 
     Professional: projects.filter(
@@ -100,22 +106,19 @@ const filterCounts = computed(() => ({
     Mobile: projects.filter(
         project => project.category === "Mobile Development"
     ).length,
-
 }));
 
 /*
 |--------------------------------------------------------------------------
-| Filtered Projects
+| Filter + Search + Sort
 |--------------------------------------------------------------------------
 */
 
 const filteredProjects = computed(() => {
 
-    // ==========================
-    // Filter
-    // ==========================
-
     let result = [...projects];
+
+    // Filter
 
     switch (selectedFilter.value) {
 
@@ -149,86 +152,53 @@ const filteredProjects = computed(() => {
 
     }
 
-    // ==========================
     // Search
-    // ==========================
 
     if (searchQuery.value.trim()) {
 
         const keyword = searchQuery.value.toLowerCase();
 
-        result = result.filter(project => {
+        result = result.filter(project =>
 
-            return (
+            project.title.toLowerCase().includes(keyword) ||
+            project.company.toLowerCase().includes(keyword) ||
+            project.role.toLowerCase().includes(keyword) ||
+            project.category.toLowerCase().includes(keyword) ||
+            project.description.toLowerCase().includes(keyword) ||
+            project.technologies.some(tech =>
+                tech.toLowerCase().includes(keyword)
+            )
 
-                project.title.toLowerCase().includes(keyword) ||
-
-                project.company.toLowerCase().includes(keyword) ||
-
-                project.role.toLowerCase().includes(keyword) ||
-
-                project.category.toLowerCase().includes(keyword) ||
-
-                project.description.toLowerCase().includes(keyword) ||
-
-                project.technologies.some(tech =>
-                    tech.toLowerCase().includes(keyword)
-                )
-
-            );
-
-        });
+        );
 
     }
 
-    // ==========================
     // Sort
-    // ==========================
 
     switch (selectedSort.value) {
 
         case "Newest":
-
-            result.sort((a, b) => {
-
-                const yearA = parseInt(a.year);
-
-                const yearB = parseInt(b.year);
-
-                return yearB - yearA;
-
-            });
-
+            result.sort(
+                (a, b) => parseInt(b.year) - parseInt(a.year)
+            );
             break;
 
         case "Oldest":
-
-            result.sort((a, b) => {
-
-                const yearA = parseInt(a.year);
-
-                const yearB = parseInt(b.year);
-
-                return yearA - yearB;
-
-            });
-
+            result.sort(
+                (a, b) => parseInt(a.year) - parseInt(b.year)
+            );
             break;
 
         case "A-Z":
-
-            result.sort((a, b) =>
-                a.title.localeCompare(b.title)
+            result.sort(
+                (a, b) => a.title.localeCompare(b.title)
             );
-
             break;
 
         case "Z-A":
-
-            result.sort((a, b) =>
-                b.title.localeCompare(a.title)
+            result.sort(
+                (a, b) => b.title.localeCompare(a.title)
             );
-
             break;
 
     }
@@ -239,39 +209,99 @@ const filteredProjects = computed(() => {
 
 /*
 |--------------------------------------------------------------------------
-| Project Modal
+| Load More
 |--------------------------------------------------------------------------
 */
 
-const selectedProject = ref(null);
+const displayedProjects = computed(() =>
+    filteredProjects.value.slice(0, visibleProjects.value)
+);
 
-const showModal = ref(false);
+const hasMoreProjects = computed(() =>
+    displayedProjects.value.length < filteredProjects.value.length
+);
+
+const remainingProjects = computed(() =>
+    filteredProjects.value.length - displayedProjects.value.length
+);
+
+const loadMoreLabel = computed(() => {
+
+    const remaining = remainingProjects.value;
+
+    if (remaining <= 0) {
+        return "";
+    }
+
+    if (remaining === 1) {
+        return "Load 1 More Project";
+    }
+
+    return `Load ${Math.min(PROJECTS_PER_LOAD, remaining)} More Projects`;
+
+});
+
+/*
+|--------------------------------------------------------------------------
+| Counter
+|--------------------------------------------------------------------------
+*/
+
+const projectCount = computed(() => ({
+    showing: displayedProjects.value.length,
+    total: filteredProjects.value.length,
+}));
+
+/*
+|--------------------------------------------------------------------------
+| Watch
+|--------------------------------------------------------------------------
+*/
+
+watch(
+    [selectedFilter, searchQuery, selectedSort],
+    () => {
+        visibleProjects.value = PROJECTS_PER_LOAD;
+    }
+);
+
+/*
+|--------------------------------------------------------------------------
+| Methods
+|--------------------------------------------------------------------------
+*/
+
+function loadMore() {
+    visibleProjects.value += PROJECTS_PER_LOAD;
+}
 
 function openProject(project) {
-
     selectedProject.value = project;
-
     showModal.value = true;
-
 }
 
 function closeProject() {
-
     showModal.value = false;
-
     selectedProject.value = null;
-
 }
 </script>
 
-<template>
 
+<template>
     <SectionWrapper id="projects">
 
         <AppContainer>
 
+            <!-- ========================================= -->
+            <!-- Section Title -->
+            <!-- ========================================= -->
+
             <SectionTitle badge="Portfolio" title="Featured Projects"
                 description="A collection of projects I have built throughout my career as a Frontend Developer, Mobile Developer, Full Stack Developer, and Programming Instructor." />
+
+            <!-- ========================================= -->
+            <!-- Search & Sort -->
+            <!-- ========================================= -->
 
             <div class="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 
@@ -281,45 +311,83 @@ function closeProject() {
 
             </div>
 
+            <!-- ========================================= -->
+            <!-- Filter -->
+            <!-- ========================================= -->
+
             <ProjectFilter v-model="selectedFilter" :filters="filters" :counts="filterCounts" />
 
-            <div class="
-                    mt-16
+            <!-- ========================================= -->
+            <!-- Counter -->
+            <!-- ========================================= -->
+
+            <div class="mt-6 flex justify-center">
+
+                <div class="
+                        inline-flex
+                        items-center
+                        gap-2
+                        rounded-full
+                        border
+                        border-slate-700
+                        bg-slate-900/60
+                        px-5
+                        py-2
+                        text-sm
+                        text-slate-400
+                    ">
+
+                    <span>Showing</span>
+
+                    <span class="font-bold text-cyan-400">
+                        {{ projectCount.showing }}
+                    </span>
+
+                    <span>of</span>
+
+                    <span class="font-bold text-white">
+                        {{ projectCount.total }}
+                    </span>
+
+                    <span>Projects</span>
+
+                </div>
+
+            </div>
+
+            <!-- ========================================= -->
+            <!-- Project Grid -->
+            <!-- ========================================= -->
+
+            <div v-if="displayedProjects.length" class="
+                    mt-12
                     grid
                     gap-8
                     lg:grid-cols-2
                 ">
 
-                <ProjectCard v-for="project in filteredProjects" :key="project.id" :project="project"
+                <ProjectCard v-for="project in displayedProjects" :key="project.id" :project="project"
                     @view="openProject" />
 
             </div>
 
-            <div v-if="filteredProjects.length" class="
-        mt-16
-        grid
-        gap-8
-        lg:grid-cols-2
-    ">
-
-                <ProjectCard v-for="project in filteredProjects" :key="project.id" :project="project"
-                    @view="openProject" />
-
-            </div>
+            <!-- ========================================= -->
+            <!-- Empty State -->
+            <!-- ========================================= -->
 
             <div v-else class="
-        mt-20
-        flex
-        flex-col
-        items-center
-        justify-center
-        rounded-3xl
-        border
-        border-dashed
-        border-slate-700
-        py-20
-        text-center
-    ">
+                    mt-20
+                    flex
+                    flex-col
+                    items-center
+                    justify-center
+                    rounded-3xl
+                    border
+                    border-dashed
+                    border-slate-700
+                    py-20
+                    text-center
+                ">
 
                 <div class="text-6xl">
                     🔍
@@ -334,47 +402,87 @@ function closeProject() {
                 </p>
 
                 <button class="
-            mt-8
-            rounded-xl
-            bg-cyan-500
-            px-6
-            py-3
-            font-semibold
-            text-slate-950
-            transition
-            hover:bg-cyan-400
-        " @click="
-            searchQuery = '';
-        selectedFilter = 'All';
-        ">
+                        mt-8
+                        rounded-xl
+                        bg-cyan-500
+                        px-6
+                        py-3
+                        font-semibold
+                        text-slate-950
+                        transition
+                        hover:bg-cyan-400
+                    " @click="
+                        searchQuery = '';
+                    selectedFilter = 'All';
+                    selectedSort = 'Newest';
+                    ">
+
                     Clear Search
+
                 </button>
 
             </div>
 
-            <ProjectModal :show="showModal" :project="selectedProject" @close="closeProject" />
+            <!-- ========================================= -->
+            <!-- Load More -->
+            <!-- ========================================= -->
 
-            <div class="mt-4 flex justify-center">
-                <div
-                    class="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/60 px-5 py-2 text-sm text-slate-400">
-                    <span>Showing</span>
+            <div v-if="hasMoreProjects" class="mt-16 flex justify-center">
 
-                    <span class="font-bold text-cyan-400">
-                        {{ projectCount.showing }}
-                    </span>
+                <button @click="loadMore" class="
+                        rounded-2xl
+                        border
+                        border-cyan-500/20
+                        bg-cyan-500/10
+                        px-8
+                        py-4
+                        font-semibold
+                        text-cyan-400
+                        transition-all
+                        duration-300
+                        hover:bg-cyan-500
+                        hover:text-slate-950
+                        hover:shadow-lg
+                        hover:shadow-cyan-500/20
+                    ">
 
-                    <span>of</span>
+                    {{ loadMoreLabel }}
 
-                    <span class="font-bold text-white">
-                        {{ projectCount.total }}
-                    </span>
+                </button>
 
-                    <span>Projects</span>
-                </div>
             </div>
+
+            <!-- ========================================= -->
+            <!-- Finish -->
+            <!-- ========================================= -->
+
+            <div v-else-if="filteredProjects.length" class="mt-16 flex justify-center">
+
+                <div class="
+                        rounded-full
+                        border
+                        border-emerald-500/20
+                        bg-emerald-500/10
+                        px-6
+                        py-3
+                        text-sm
+                        font-semibold
+                        text-emerald-400
+                    ">
+
+                    ✓ All projects loaded
+
+                </div>
+
+            </div>
+
+            <!-- ========================================= -->
+            <!-- Modal -->
+            <!-- ========================================= -->
+
+            <ProjectModal :show="showModal" :project="selectedProject" @close="closeProject" />
 
         </AppContainer>
 
     </SectionWrapper>
-
 </template>
