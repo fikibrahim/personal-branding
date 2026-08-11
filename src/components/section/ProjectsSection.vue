@@ -11,6 +11,7 @@ import ProjectModal from "@/components/projects/ProjectModal.vue";
 import ProjectSearch from "@/components/projects/ProjectSearch.vue";
 import ProjectSort from "@/components/projects/ProjectSort.vue";
 
+
 import { projects } from "@/data/projects";
 
 import {
@@ -38,6 +39,7 @@ const PROJECTS_PER_LOAD = 2;
 const selectedFilter = ref("All");
 const searchQuery = ref("");
 const selectedSort = ref("Newest");
+
 
 const visibleProjects = ref(PROJECTS_PER_LOAD);
 
@@ -296,8 +298,8 @@ function closeProject() {
             <!-- Section Title -->
             <!-- ========================================= -->
 
-            <SectionTitle badge="Portfolio" title="Featured Projects"
-                description="A collection of projects I have built throughout my career as a Frontend Developer, Mobile Developer, Full Stack Developer, and Programming Instructor." />
+            <SectionTitle badge="Portfolio" title="All Projects"
+                description="Explore my complete collection of professional and personal projects." />
 
             <!-- ========================================= -->
             <!-- Search & Sort -->
@@ -475,6 +477,7 @@ function closeProject() {
                 </div>
 
             </div>
+
 
             <!-- ========================================= -->
             <!-- Modal -->

@@ -2,8 +2,8 @@
 import FeaturedImage from "@/components/projects/FeaturedImage.vue";
 import ProjectBadge from "@/components/projects/ProjectBadge.vue";
 import ProjectTech from "@/components/projects/ProjectTech.vue";
-import ProjectHighlights from "@/components/projects/ProjectHighlights.vue";
 import ProjectActions from "@/components/projects/ProjectActions.vue";
+import FeaturedStats from "@/components/projects/FeaturedStats.vue";
 
 const props = defineProps({
     project: {
@@ -40,12 +40,10 @@ function openProject() {
 
         <div class="grid lg:grid-cols-2">
 
-            <!-- Left -->
+            <!-- LEFT -->
+            <FeaturedImage :image="project.image" :title="project.title" :demo="project.demo" />
 
-            <FeaturedImage :image="project.image" :title="project.title" />
-
-            <!-- Right -->
-
+            <!-- RIGHT -->
             <div class="
                     flex
                     flex-col
@@ -59,10 +57,10 @@ function openProject() {
 
                     <div class="
                             flex
-                            flex-wrap
                             items-center
                             justify-between
-                            gap-3
+                            gap-4
+                            flex-wrap
                         ">
 
                         <ProjectBadge text="⭐ Featured Project" />
@@ -88,7 +86,7 @@ function openProject() {
                     <div>
 
                         <h2 class="
-                                text-4xl
+                                text-3xl
                                 font-bold
                                 leading-tight
                                 text-white
@@ -99,8 +97,8 @@ function openProject() {
                         </h2>
 
                         <p class="
-                                mt-3
-                                text-lg
+                                mt-2
+                                text-base
                                 font-medium
                                 text-cyan-400
                             ">
@@ -113,9 +111,7 @@ function openProject() {
                                 text-slate-500
                             ">
                             {{ project.role }}
-
                             •
-
                             {{ project.year }}
                         </p>
 
@@ -123,43 +119,32 @@ function openProject() {
 
                     <!-- Description -->
 
-                    <div>
-
-                        <h3 class="
-                                mb-3
-                                text-lg
-                                font-semibold
-                                text-white
-                            ">
-                            About Project
-                        </h3>
-
-                        <p class="
-                                leading-8
-                                text-slate-400
-                            ">
-                            {{ project.description }}
-                        </p>
-
-                    </div>
+                    <p class="
+                            line-clamp-3
+                            leading-7
+                            text-slate-400
+                        ">
+                        {{ project.description }}
+                    </p>
 
                     <!-- Tech -->
 
-                    <ProjectTech :technologies="project.technologies" />
+                    <ProjectTech :technologies="project.technologies.slice(0, 5)" />
 
-                    <!-- Highlights -->
+                    <!-- Stats -->
 
-                    <ProjectHighlights :highlights="project.responsibilities" />
+                    <FeaturedStats v-if="project.stats" :stats="project.stats" />
 
                 </div>
 
                 <!-- Footer -->
 
                 <div class="
-                        mt-10
+                        mt-8
                         flex
                         flex-wrap
                         items-center
+                        justify-between
                         gap-4
                     ">
 
