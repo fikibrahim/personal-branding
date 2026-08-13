@@ -11,41 +11,78 @@ defineProps({
 
 <template>
 
-    <ul
-        class="
-            space-y-3
-        "
-    >
+    <div v-if="highlights.length">
 
-        <li
-            v-for="item in highlights"
-            :key="item"
-            class="
-                flex
-                items-start
-                gap-3
+        <!-- Heading -->
+
+        <h4 class="
+                mb-4
                 text-sm
-                leading-6
+                font-semibold
+                uppercase
+                tracking-wider
                 text-slate-300
-            "
-        >
+            ">
+            Key Highlights
+        </h4>
 
-            <CircleCheck
-                class="
-                    mt-0.5
-                    h-4
-                    w-4
-                    shrink-0
-                    text-cyan-400
-                "
-            />
+        <!-- Highlights -->
 
-            <span>
-                {{ item }}
-            </span>
+        <ul class="space-y-3">
 
-        </li>
+            <li v-for="item in highlights" :key="item" class="
+                    group/highlight
+                    flex
+                    items-start
+                    gap-3
+                    rounded-xl
+                    border
+                    border-transparent
+                    px-3
+                    py-2
+                    text-sm
+                    leading-6
+                    text-slate-400
+                    transition-all
+                    duration-300
+                    hover:border-slate-800
+                    hover:bg-slate-950/40
+                    hover:text-slate-300
+                ">
 
-    </ul>
+                <!-- Icon -->
+
+                <span class="
+                        mt-0.5
+                        flex
+                        h-5
+                        w-5
+                        shrink-0
+                        items-center
+                        justify-center
+                        rounded-full
+                        bg-cyan-500/10
+                        text-cyan-400
+                        transition-all
+                        duration-300
+                        group-hover/highlight:bg-cyan-500/20
+                        group-hover/highlight:text-cyan-300
+                    ">
+
+                    <CircleCheck class="h-3.5 w-3.5" />
+
+                </span>
+
+                <!-- Text -->
+
+                <span class="flex-1">
+                    {{ item }}
+                </span>
+
+            </li>
+
+        </ul>
+
+    </div>
 
 </template>

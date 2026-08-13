@@ -32,7 +32,7 @@ export const projects = [
 
         image: project1,
 
-        github: "",
+        github: "https://github.com/fikibrahim",
 
         demo: "https://maxistyle.com/",
 
@@ -117,9 +117,9 @@ export const projects = [
 
         image: project2,
 
-        github: "",
+        github: "https://github.com/",
 
-        demo: "",
+        demo: "https://fikibrahim.github.io/personal/",
 
         description:
             "Flutter mobile application for internal company operations with REST API integration and responsive user interface implementation.",
@@ -285,7 +285,7 @@ export const projects = [
 
         github: "https://github.com/fikibrahim/personal-branding",
 
-        demo: "",
+        demo: "https://fikibrahim.github.io/personal/",
 
         description:
             "Modern personal portfolio built using Vue 3 and Tailwind CSS with reusable components, responsive layouts, smooth animations, and clean architecture.",
