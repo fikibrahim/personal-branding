@@ -32,7 +32,7 @@ export const projects = [
 
         image: project1,
 
-        github: "https://github.com/fikibrahim",
+        github: "",
 
         demo: "https://maxistyle.com/",
 
@@ -40,54 +40,36 @@ export const projects = [
             "Developed and maintained the official company website using Laravel Blade and Tailwind CSS. Focused on responsive user interfaces, performance optimization, and feature implementation based on business requirements.",
 
         technologies: [
-
             "Laravel 10",
-
             "PHP",
-
             "Blade",
-
             "Tailwind CSS",
-
             "JavaScript",
-
-            "MySQL"
-
+            "MySQL",
         ],
 
         responsibilities: [
-
             "Develop responsive company website.",
-
             "Create reusable Blade components.",
-
             "Implement UI from design mockups.",
-
             "Collaborate with backend developers.",
-
-            "Maintain production website."
-
+            "Maintain production website.",
         ],
 
         stats: [
-
             {
                 value: "100%",
                 label: "Responsive",
             },
-
             {
                 value: "15+",
                 label: "Pages",
             },
-
             {
                 value: "24/7",
                 label: "Production",
             },
-
-        ]
-
+        ],
     },
 
     // =====================================================
@@ -97,13 +79,13 @@ export const projects = [
     {
         id: 2,
 
-        featured: true,
+        featured: false,
 
         type: "Professional Project",
 
         category: "Mobile Development",
 
-        title: "Lorem Mobile Application",
+        title: "Internal Mobile Application",
 
         company: "PT Ragdalion Revolusi Industri",
 
@@ -117,58 +99,42 @@ export const projects = [
 
         image: project2,
 
-        github: "https://github.com/",
+        github: "",
 
-        demo: "https://fikibrahim.github.io/personal/",
+        demo: "",
 
         description:
             "Flutter mobile application for internal company operations with REST API integration and responsive user interface implementation.",
 
         technologies: [
-
             "Flutter",
-
             "Dart",
-
             "REST API",
-
-            "Firebase"
-
+            "Firebase",
         ],
 
         responsibilities: [
-
             "Develop mobile application using Flutter.",
-
             "Implement responsive UI.",
-
             "Consume REST API.",
-
             "Application testing.",
-
-            "Bug fixing and maintenance."
-
+            "Bug fixing and maintenance.",
         ],
 
         stats: [
-
             {
                 value: "REST",
                 label: "API",
             },
-
             {
                 value: "Android",
                 label: "Platform",
             },
-
             {
                 value: "100%",
                 label: "Responsive UI",
             },
-
-        ]
-
+        ],
     },
 
     // =====================================================
@@ -200,60 +166,42 @@ export const projects = [
 
         github: "https://github.com/fikibrahim",
 
-        demo: "https://example.com",
+        demo: "",
 
         description:
             "Modern logistics dashboard for delivery monitoring with interactive dashboard, driver management, vehicle management, shipment tracking, and reporting.",
 
         technologies: [
-
             "Vue 3",
-
             "Pinia",
-
             "Laravel",
-
             "REST API",
-
             "Tailwind CSS",
-
-            "MySQL"
-
+            "MySQL",
         ],
 
         responsibilities: [
-
             "Design system architecture.",
-
             "Develop REST API.",
-
             "Build responsive frontend.",
-
             "Authentication system.",
-
-            "Deployment."
-
+            "Deployment.",
         ],
 
         stats: [
-
             {
                 value: "6+",
                 label: "Modules",
             },
-
             {
                 value: "REST",
                 label: "Backend API",
             },
-
             {
                 value: "Vue 3",
                 label: "Frontend",
             },
-
-        ]
-
+        ],
     },
 
     // =====================================================
@@ -291,54 +239,36 @@ export const projects = [
             "Modern personal portfolio built using Vue 3 and Tailwind CSS with reusable components, responsive layouts, smooth animations, and clean architecture.",
 
         technologies: [
-
             "Vue 3",
-
             "Vite",
-
             "Tailwind CSS",
-
             "JavaScript",
-
             "AOS",
-
-            "Lucide Icons"
-
+            "Lucide Icons",
         ],
 
         responsibilities: [
-
             "Design reusable components.",
-
             "Build responsive layout.",
-
             "Implement modern animations.",
-
             "Optimize performance.",
-
-            "Continuous feature development."
-
+            "Continuous feature development.",
         ],
 
         stats: [
-
             {
                 value: "20+",
                 label: "Components",
             },
-
             {
                 value: "100%",
                 label: "Responsive",
             },
-
             {
                 value: "A+",
                 label: "Performance",
             },
-
-        ]
-
-    }
+        ],
+    },
 
 ];
