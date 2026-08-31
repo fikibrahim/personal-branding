@@ -2,6 +2,11 @@ import project1 from "@/assets/projects/project-1.png";
 import project2 from "@/assets/projects/project-2.png";
 import project3 from "@/assets/projects/project-3.png";
 import project4 from "@/assets/projects/project-4.png";
+import project5 from "@/assets/projects/project-5.png";
+import project6 from "@/assets/projects/project-6.png";
+import project7 from "@/assets/projects/project-7.png";
+import project8 from "@/assets/projects/project-8.png";
+import project9 from "@/assets/projects/project-9.png";
 
 export const projects = [
 
@@ -97,7 +102,7 @@ export const projects = [
 
         private: true,
 
-        image: project2,
+        image: project9,
 
         github: "",
 
@@ -146,36 +151,35 @@ export const projects = [
 
         featured: false,
 
-        type: "Personal Project",
+        type: "PT Ragdalion Revolusi Industri",
 
         category: "Full Stack Development",
 
-        title: "Logistics Delivery Dashboard",
+        title: "Web Landing Page",
 
-        company: "Personal Project",
+        company: "PT Ragdalion Revolusi Industri",
 
         role: "Full Stack Developer",
 
-        year: "2026",
+        year: "2022",
 
         status: "Completed",
 
         private: false,
 
-        image: project3,
+        image: project8,
 
-        github: "https://github.com/fikibrahim",
+        github: "",
 
         demo: "",
 
         description:
-            "Modern logistics dashboard for delivery monitoring with interactive dashboard, driver management, vehicle management, shipment tracking, and reporting.",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
 
         technologies: [
-            "Vue 3",
-            "Pinia",
             "Laravel",
-            "REST API",
+            "php",
+            "HTML",
             "Tailwind CSS",
             "MySQL",
         ],
@@ -229,7 +233,7 @@ export const projects = [
 
         private: false,
 
-        image: project4,
+        image: project5,
 
         github: "https://github.com/fikibrahim/personal-branding",
 
