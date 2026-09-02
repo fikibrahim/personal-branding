@@ -8,6 +8,7 @@ import AboutSection from "@/components/about/AboutSection.vue";
 import ExperienceSection from "@/components/experience/ExperienceSection.vue";
 import SkillsSection from "@/components/section/SkillsSection.vue";
 import ProjectsSection from "@/components/section/ProjectsSection.vue";
+import ContactSection from "@/components/contact/ContactSection.vue";
 
 import FeaturedCard from "@/components/projects/FeaturedCard.vue";
 import ProjectModal from "@/components/projects/ProjectModal.vue";
@@ -159,6 +160,8 @@ function closeProject() {
       <!-- ===================================================== -->
 
       <ProjectsSection />
+
+      <ContactSection />
 
       <!-- ===================================================== -->
       <!-- Project Modal -->
