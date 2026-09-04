@@ -60,7 +60,7 @@ function closeProject() {
 
   <DefaultLayout>
 
-    <section>
+    <section id="home" class="relative">
 
       <!-- ===================================================== -->
       <!-- Hero -->

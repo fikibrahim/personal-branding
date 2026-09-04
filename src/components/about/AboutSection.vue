@@ -11,7 +11,7 @@ import AboutContent from "./AboutContent.vue";
 <template>
         <AppContainer>
 
-            <SectionTitle badge="About Me" title="Building Digital Solutions with Passion"
+            <SectionTitle id="about" badge="About Me" title="Building Digital Solutions with Passion"
                 subtitle="Perjalanan saya dari dunia hospitality menuju software development dan pendidikan teknologi."
                 align="center" />
 

@@ -7,7 +7,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="mx-auto mb-16 max-w-3xl text-center">
+  <div class="mx-auto mb-16 max-w-3xl text-center" id="home" data-aos="fade-up">
 
     <span class="
         inline-flex
