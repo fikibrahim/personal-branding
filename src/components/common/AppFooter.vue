@@ -1,9 +1,9 @@
 <script setup>
 import {
-  Github,
-  Linkedin,
-  Mail,
-  ArrowUp,
+    Github,
+    Linkedin,
+    Mail,
+    ArrowUp,
 } from "lucide-vue-next";
 
 import AppContainer from "./AppContainer.vue";
@@ -12,34 +12,34 @@ import { socials } from "@/data/social";
 import { navigation } from "@/data/navigation";
 
 const iconMap = {
-  github: Github,
-  linkedin: Linkedin,
-  mail: Mail,
+    github: Github,
+    linkedin: Linkedin,
+    mail: Mail,
 };
 
 const footerSocials = socials.filter(
-  social => ["github", "linkedin", "mail"].includes(social.icon)
+    social => ["github", "linkedin", "mail"].includes(social.icon)
 );
 
 function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
 }
 </script>
 
 <template>
 
-  <footer class="border-t border-slate-800 bg-slate-950">
+    <footer class="border-t border-slate-800 bg-slate-950">
 
-    <AppContainer>
+        <AppContainer>
 
-      <div class="py-12">
+            <div class="py-12">
 
-        <!-- Main Footer -->
+                <!-- Main Footer -->
 
-        <div class="
+                <div class="
                     flex
                     flex-col
                     gap-10
@@ -48,54 +48,54 @@ function scrollToTop() {
                     md:justify-between
                 ">
 
-          <!-- Branding -->
+                    <!-- Branding -->
 
-          <div class="max-w-sm">
+                    <div class="max-w-sm">
 
-            <h2 class="
+                        <h2 class="
                             text-xl
                             font-bold
                             text-white
                         ">
-              Taufik Ibrahim
-            </h2>
+                            Taufik Ibrahim
+                        </h2>
 
-            <p class="
+                        <p class="
                             mt-2
                             text-sm
                             font-medium
                             text-cyan-400
                         ">
-              Web & Mobile Developer
-            </p>
+                            Web & Mobile Developer
+                        </p>
 
-            <p class="
+                        <p class="
                             mt-4
                             text-sm
                             leading-6
                             text-slate-500
                         ">
-              Building modern, responsive, and
-              reliable digital experiences.
-            </p>
+                            Building modern, responsive, and
+                            reliable digital experiences.
+                        </p>
 
-          </div>
+                    </div>
 
-          <!-- Navigation -->
+                    <!-- Navigation -->
 
-          <div>
+                    <div>
 
-            <h3 class="
+                        <h3 class="
                             text-sm
                             font-semibold
                             uppercase
                             tracking-wider
                             text-white
                         ">
-              Navigation
-            </h3>
+                            Navigation
+                        </h3>
 
-            <nav class="
+                        <nav class="
                             mt-4
                             flex
                             flex-wrap
@@ -103,43 +103,53 @@ function scrollToTop() {
                             gap-y-3
                         ">
 
-              <a v-for="item in navigation" :key="item.label" :href="item.href" class="
+                            <a
+                                v-for="item in navigation"
+                                :key="item.name"
+                                :href="item.href"
+                                class="
                                     text-sm
                                     text-slate-500
                                     transition
                                     hover:text-cyan-400
-                                ">
-                {{ item.label }}
-              </a>
+                                "
+                            >
+                                {{ item.name }}
+                            </a>
 
-            </nav>
+                        </nav>
 
-          </div>
+                    </div>
 
-          <!-- Social -->
+                    <!-- Social -->
 
-          <div>
+                    <div>
 
-            <h3 class="
+                        <h3 class="
                             text-sm
                             font-semibold
                             uppercase
                             tracking-wider
                             text-white
                         ">
-              Connect
-            </h3>
+                            Connect
+                        </h3>
 
-            <div class="
+                        <div class="
                             mt-4
                             flex
                             flex-wrap
                             gap-3
                         ">
 
-              <a v-for="social in footerSocials" :key="social.name" :href="social.url"
-                :target="social.icon === 'mail' ? '_self' : '_blank'" rel="noopener noreferrer"
-                :aria-label="social.name" class="
+                            <a
+                                v-for="social in footerSocials"
+                                :key="social.name"
+                                :href="social.url"
+                                :target="social.icon === 'mail' ? '_self' : '_blank'"
+                                rel="noopener noreferrer"
+                                :aria-label="social.name"
+                                class="
                                     flex
                                     h-10
                                     w-10
@@ -156,29 +166,33 @@ function scrollToTop() {
                                     hover:border-cyan-500/40
                                     hover:bg-cyan-500/10
                                     hover:text-cyan-400
-                                ">
+                                "
+                            >
 
-                <component :is="iconMap[social.icon]" class="h-4 w-4" />
+                                <component
+                                    :is="iconMap[social.icon]"
+                                    class="h-4 w-4"
+                                />
 
-              </a>
+                            </a>
 
-            </div>
+                        </div>
 
-          </div>
+                    </div>
 
-        </div>
+                </div>
 
-        <!-- Divider -->
+                <!-- Divider -->
 
-        <div class="
+                <div class="
                     my-8
                     border-t
                     border-slate-800
                 "></div>
 
-        <!-- Bottom -->
+                <!-- Bottom -->
 
-        <div class="
+                <div class="
                     flex
                     flex-col
                     items-center
@@ -188,33 +202,38 @@ function scrollToTop() {
                     sm:flex-row
                 ">
 
-          <p class="text-slate-500">
-            © {{ new Date().getFullYear() }}
-            Taufik Ibrahim.
-            All rights reserved.
-          </p>
+                    <p class="text-slate-500">
+                        © {{ new Date().getFullYear() }}
+                        Taufik Ibrahim.
+                        All rights reserved.
+                    </p>
 
-          <button type="button" aria-label="Back to top" @click="scrollToTop" class="
+                    <button
+                        type="button"
+                        aria-label="Back to top"
+                        @click="scrollToTop"
+                        class="
                             inline-flex
                             items-center
                             gap-2
                             text-slate-500
                             transition
                             hover:text-cyan-400
-                        ">
+                        "
+                    >
 
-            Back to top
+                        Back to top
 
-            <ArrowUp class="h-4 w-4" />
+                        <ArrowUp class="h-4 w-4" />
 
-          </button>
+                    </button>
 
-        </div>
+                </div>
 
-      </div>
+            </div>
 
-    </AppContainer>
+        </AppContainer>
 
-  </footer>
+    </footer>
 
 </template>
