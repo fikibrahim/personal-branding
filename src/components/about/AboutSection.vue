@@ -17,9 +17,9 @@ import AboutContent from "./AboutContent.vue";
 
             <div class="mt-16 grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
                 
-                <AboutImage />
+                <AboutImage class="min-w-0"  />
 
-                <AboutContent />
+                <AboutContent class="min-w-0"  />
             </div>
 
             <AboutHighlights />
