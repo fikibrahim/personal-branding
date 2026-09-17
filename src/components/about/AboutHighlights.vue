@@ -24,8 +24,8 @@ const highlights = [
 </script>
 
 <template>
-    <div class="mt-20 grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-aos="fade-up">
-        <BaseCard v-for="item in highlights" :key="item.title" class="group">
+    <div class="mt-20 grid min-w-0 gap-6 md:grid-cols-2 lg:grid-cols-3" data-aos="fade-up">
+        <BaseCard v-for="item in highlights" :key="item.title" class="group min-w-0">
             <div
                 class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-500/10 text-3xl transition-all duration-300 group-hover:bg-cyan-500/20">
                 {{ item.icon }}
