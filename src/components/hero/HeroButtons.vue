@@ -6,7 +6,7 @@ import BaseButton from "@/components/common/BaseButton.vue";
   <div class="mt-8 flex flex-wrap gap-4">
 
     <!-- HeroButtons.vue -->
-    <BaseButton href="/cv.pdf">
+    <BaseButton href="/Taufik_Ibrahim_CV_Updated.pdf">
       Download CV
     </BaseButton>
 
