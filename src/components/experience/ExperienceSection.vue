@@ -8,16 +8,14 @@ import ExperienceTimeline from "./ExperienceTimeline.vue";
 
 <template>
     <SectionWrapper id="experience">
-
         <AppContainer>
-
             <SectionTitle badge="Experience" title="My Professional Journey"
                 subtitle="Perjalanan karier yang membentuk kemampuan teknis, komunikasi, dan semangat belajar saya."
                 align="center" />
 
-            <ExperienceTimeline />
-
+            <div class="min-w-0">
+                <ExperienceTimeline />
+            </div>
         </AppContainer>
-
     </SectionWrapper>
 </template>
